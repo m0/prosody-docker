@@ -46,5 +46,7 @@ RUN set -ex; \
 COPY entrypoint.pl /usr/local/bin/
 ENTRYPOINT ["entrypoint.pl"]
 
+HEALTHCHECK CMD /usr/bin/prosodyctl check
+
 USER prosody:prosody
 CMD ["prosodyctl", "start"]
