@@ -2,7 +2,7 @@
 -- this option allows you to specify additional locations where Prosody
 -- will look for modules first. For community modules, see https://modules.prosody.im/
 
-plugin_paths = { "/opt/prosody-modules-enabled" }
+plugin_paths = { }
 
 -- This is the list of modules Prosody will load on startup.
 -- It looks for mod_modulename.lua in the plugins folder, so make sure that exists too.
@@ -51,7 +51,8 @@ modules_enabled = {
 		--"legacyauth"; -- Legacy authentication. Only used by some old clients and bots.
 		--"proxy65"; -- Enables a file transfer proxy service which clients behind NAT can use
 
-	-- Environment loaded global core and community modules
+	    "posix"; -- POSIX functionality, sends server to background, enables syslog, etc.
+	-- Environment loaded modules
 		${PROSODY_ENABLED_MODULES:-}
 }
 
@@ -63,4 +64,6 @@ modules_disabled = {
 	-- "c2s"; -- Handle client connections
 	-- "s2s"; -- Handle server-to-server connections
 	-- "posix"; -- POSIX functionality, sends server to background, enables syslog, etc.
+	-- Environment disabled modules
+		${PROSODY_DISABLED_MODULES:-}
 }

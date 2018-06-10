@@ -1,5 +1,5 @@
 # prosody-docker
-Dockerfile to build a Prosody XMPP server container image.
+Dockerfile to build a Prosody XMPP server container image using the latest official release from the prosody.im debian repository.
 
 # Configuration
 
@@ -12,20 +12,12 @@ Default value: `info`
 
 Determines which log level to use for the console output, possible values are `info`, `warn`, `error` and `debug`.
 
-### `PROSODY_MODULES_AVAILABLE`
-Default value: `none`  
-Example: `-e PROSODY_MODULES_AVAILABLE='lastlog firewall swedishchef'`
-
-A space-separated list of modules to symlink from `/opt/prosody-modules-available/`
-to `/opt/prosody-modules-enabled/`, does not enable them by default however. You then
-need to specify within `PROSODY_MODULES_ENABLED` if you'd like them loaded globally.
-
 ### `PROSODY_MODULES_ENABLED`
 Default value: `none`  
 Example: `-e PROSODY_MODULES_ENABLED='websocket server_contact_info'`
 
 A space-separated list of modules to enable within the global modules_enabled configurartion
-block. This variable will also attempt to deduplicate any modules passed through.
+block.
 
 ### `PROSODY_MODULES_DISABLED`
 Default value: `none`  
